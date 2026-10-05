@@ -530,19 +530,6 @@ export default function Home() {
                 file="cafe-location"
                 alt="The entrance view of Cether at The Building, 146 D. Tuazon, Sta. Mesa Heights, Quezon City"
               />
-              <a
-                href={mapLink}
-                target="_blank"
-                rel="noreferrer"
-                className="map-tag"
-              >
-                <MapPin size={18} aria-hidden="true" />
-                <span>YOUR LITTLE SHELTER IN QUEZON CITY</span>
-                <ArrowUpRight size={18} aria-hidden="true" />
-                <span className="sr-only">
-                  Get directions (opens in a new tab)
-                </span>
-              </a>
             </Reveal>
           </div>
         </section>

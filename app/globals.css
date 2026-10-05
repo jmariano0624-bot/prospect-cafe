@@ -964,27 +964,6 @@ section[id] {
 .visit-photo .photo {
   aspect-ratio: 3/4;
 }
-.map-tag {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  background: var(--paper);
-}
-.map-tag span {
-  font-size: 8px;
-  letter-spacing: 1px;
-}
-.map-tag svg {
-  flex-shrink: 0;
-}
-.map-tag svg:last-child {
-  margin-left: auto;
-}
 
 .closing-section {
   position: relative;
@@ -1350,14 +1329,6 @@ section[id] {
     aspect-ratio: auto;
     height: 620px;
   }
-  .map-tag {
-    left: 12px;
-    right: 12px;
-    padding: 13px;
-  }
-  .map-tag span {
-    font-size: 7px;
-  }
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -1697,9 +1668,6 @@ section[id] {
   .visit-photo .photo {
     height: auto;
     aspect-ratio: 3/4;
-  }
-  .map-tag {
-    padding: 18px;
   }
   .closing-section {
     min-height: 410px;
