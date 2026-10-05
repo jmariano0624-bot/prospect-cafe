@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -42,8 +43,14 @@ export function Header() {
           aria-label="Cether Specialty Coffee + Bistro, home"
           onClick={() => setOpen(false)}
         >
-          <span>CETHER</span>
-          <small>SPECIALTY COFFEE + BISTRO</small>
+          <Image
+            src="/cether/logo.jpg"
+            alt="Cether Specialty Coffee + Bistro"
+            width={2048}
+            height={2048}
+            sizes="(max-width: 599px) 132px, (max-width: 1100px) 145px, 165px"
+            priority
+          />
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navigation.map(([label, id]) => (

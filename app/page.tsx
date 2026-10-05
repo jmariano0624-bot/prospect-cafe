@@ -576,8 +576,13 @@ export default function Home() {
       <footer className="site-footer section-shell">
         <div className="footer-top">
           <a href="#home" className="wordmark">
-            <span>CETHER</span>
-            <small>SPECIALTY COFFEE + BISTRO</small>
+            <Image
+              src="/cether/logo.jpg"
+              alt="Cether Specialty Coffee + Bistro"
+              width={2048}
+              height={2048}
+              sizes="(max-width: 599px) 132px, (max-width: 1100px) 145px, 165px"
+            />
           </a>
           <p>
             Sheltered in every sip.
