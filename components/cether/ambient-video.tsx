@@ -12,12 +12,16 @@ export function AmbientVideo({
   poster,
   label,
   priority = false,
+  autoPlay = false,
+  showControls = true,
   className = "",
 }: {
   src: string;
   poster: string;
   label: string;
   priority?: boolean;
+  autoPlay?: boolean;
+  showControls?: boolean;
   className?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -32,8 +36,9 @@ export function AmbientVideo({
     video.defaultMuted = true;
     video.volume = 0;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let visible = false;
+    let visible = autoPlay;
     const sync = () => {
+      video.autoplay = autoPlay && !preference.matches;
       if (
         visible &&
         !document.hidden &&
@@ -44,6 +49,7 @@ export function AmbientVideo({
         void video.play().catch(() => setPlaying(false));
       } else video.pause();
     };
+    sync();
     const observer = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting && entry.intersectionRatio >= 0.3;
@@ -61,7 +67,7 @@ export function AmbientVideo({
       video.pause();
       if (activeVideo === video) activeVideo = null;
     };
-  }, [src]);
+  }, [src, autoPlay]);
   function togglePlayback() {
     const video = videoRef.current;
     if (!video) return;
@@ -87,10 +93,11 @@ export function AmbientVideo({
       <video
         ref={videoRef}
         className={`media-cover ${ready && !failed ? "video-ready" : ""}`}
+        autoPlay={autoPlay}
         muted
         playsInline
         loop
-        preload="none"
+        preload={autoPlay ? "auto" : "none"}
         aria-hidden="true"
         tabIndex={-1}
         disablePictureInPicture
@@ -114,7 +121,7 @@ export function AmbientVideo({
           }
         }}
       />
-      {!failed && (
+      {showControls && !failed && (
         <Button
           variant="ghost"
           size="icon"

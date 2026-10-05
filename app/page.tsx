@@ -93,6 +93,8 @@ export default function Home() {
               poster="/cether/order-1.jpg"
               label="coffee making"
               priority
+              autoPlay
+              showControls={false}
             />
             <div className="hero-image-note">
               <span className="eyebrow">
