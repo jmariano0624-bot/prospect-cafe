@@ -64,11 +64,9 @@ export default function Home() {
                 <span className="small-line" /> A LITTLE SHELTER IN THE CITY
               </p>
               <h1 id="hero-heading">
-                Sheltered in every sip.
-                <br />
+                <span>Sheltered in every sip.</span>
                 <em>Comfort in every bite.</em>
-                <br />
-                At home in every moment.
+                <span>At home in every moment.</span>
               </h1>
               <p className="hero-description">
                 The OG Trusted Specialty Coffee Events Bar.
