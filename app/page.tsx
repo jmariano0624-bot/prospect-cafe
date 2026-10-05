@@ -64,17 +64,14 @@ export default function Home() {
                 <span className="small-line" /> A LITTLE SHELTER IN THE CITY
               </p>
               <h1 id="hero-heading">
-                Coffee worth
+                SHELTERED in Every Sip.
                 <br />
-                <em>slowing down for.</em>
+                <em>COMFORT in Every Bite.</em>
                 <br />
-                Food worth
-                <br />
-                <em>staying for.</em>
+                AT HOME in Every Moment.
               </h1>
               <p className="hero-description">
-                Specialty coffee. Comfort on a plate.
-                <br />A place to feel at home, here in Quezon City.
+                The OG Trusted Specialty Coffee Events Bar.
               </p>
               <div className="hero-actions">
                 <a className="action-link" href="#coffee-bistro">
@@ -585,9 +582,11 @@ export default function Home() {
             />
           </a>
           <p>
-            Sheltered in every sip.
+            SHELTERED in Every Sip.
             <br />
-            At home in every moment.
+            COMFORT in Every Bite.
+            <br />
+            AT HOME in Every Moment.
           </p>
           <nav aria-label="Footer navigation">
             <a href="#coffee-bistro">Coffee + Bistro</a>
