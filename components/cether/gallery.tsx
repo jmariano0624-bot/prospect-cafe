@@ -10,91 +10,76 @@ type Category = "All" | "Coffee + drinks" | "From the kitchen";
 const categories: Category[] = ["All", "Coffee + drinks", "From the kitchen"];
 const moments: {
   file: string;
-  label: string;
   alt: string;
   category: Exclude<Category, "All">;
 }[] = [
   {
     file: "order-1",
-    label: "Better together",
     alt: "Cups of coffee and pastries shared across a Cether table",
     category: "Coffee + drinks",
   },
   {
     file: "food-3",
-    label: "From the kitchen",
     alt: "Cether lemon herb chicken with rice and lemon",
     category: "From the kitchen",
   },
   {
     file: "drink-1",
-    label: "Something a little different",
     alt: "Cether pistachio cream latte",
     category: "Coffee + drinks",
   },
   {
     file: "food-1",
-    label: "Stay for a plate",
     alt: "Cether truffle pasta served in a black bowl",
     category: "From the kitchen",
   },
   {
     file: "drink-4",
-    label: "Your coffee moment",
     alt: "Two Cether cloud tibok lattes on a marble counter",
     category: "Coffee + drinks",
   },
   {
     file: "food-6",
-    label: "A sweet pause",
     alt: "Cether banana Nutella waffle",
     category: "From the kitchen",
   },
   {
     file: "drink-2",
-    label: "A refreshing change",
     alt: "Cether black tea peach iced tea",
     category: "Coffee + drinks",
   },
   {
     file: "food-2",
-    label: "Comfort in a bowl",
     alt: "Cether mushroom soup with toasted bread",
     category: "From the kitchen",
   },
   {
     file: "order-2",
-    label: "Take a little moment",
     alt: "Three Cether coffees with a croissant beneath a brass table lamp",
     category: "Coffee + drinks",
   },
   {
     file: "food-4",
-    label: "Settle in",
     alt: "Cether loco moco with rice, egg, and a side salad",
     category: "From the kitchen",
   },
   {
     file: "drink-3",
-    label: "A brighter sip",
     alt: "Cether strawberry basil lemonade",
     category: "Coffee + drinks",
   },
   {
     file: "food-5",
-    label: "Made for the table",
     alt: "Cether truffle pasta photographed on a marble table",
     category: "From the kitchen",
   },
   {
     file: "drink-5",
-    label: "A little indulgence",
     alt: "Cether cookies and cream drink topped with a cookie",
     category: "Coffee + drinks",
   },
   {
     file: "food-7",
-    label: "Good food, good company",
     alt: "A Cether chicken dish with bread on a black plate",
     category: "From the kitchen",
   },
@@ -160,7 +145,6 @@ export function Gallery() {
               </span>
             </a>
             <div className="gallery-caption">
-              <span>{item.label}</span>
               <span>{String(index + 1).padStart(2, "0")}</span>
             </div>
           </Reveal>

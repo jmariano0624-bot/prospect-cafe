@@ -624,7 +624,7 @@ section[id] {
 .gallery-caption {
   display: flex;
   gap: 15px;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 14px;
   font-size: 11px;
 }
