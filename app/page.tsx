@@ -94,7 +94,6 @@ export default function Home() {
               label="coffee making"
               priority
               autoPlay
-              showControls={false}
             />
             <div className="hero-image-note">
               <span className="eyebrow">
