@@ -1077,8 +1077,9 @@ section[id] {
 @media (min-width: 901px) {
   .hero h1 {
     white-space: nowrap;
-    /* Align the third baseline with the image card as the hero height scales. */
-    row-gap: calc((clamp(580px, 45vw, 700px) - 213px - 3em) / 2);
+    font-size: clamp(37px, 4.2vw, 60px);
+    /* Tighten the sentence gaps on shorter screens to keep the CTAs visible. */
+    row-gap: clamp(16px, calc((100svh - 620px) / 2), 72px);
   }
 }
 @media (min-width: 1600px) {
