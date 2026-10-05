@@ -44,7 +44,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/cether/logo.jpg"
+            src="/cether/updated-logo.png"
             alt="Cether Specialty Coffee + Bistro"
             width={2048}
             height={2048}
