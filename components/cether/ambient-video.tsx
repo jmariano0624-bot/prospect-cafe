@@ -46,9 +46,24 @@ export function AmbientVideo({
         !userPaused.current
       ) {
         if (!video.getAttribute("src")) video.src = src;
-        void video.play().catch(() => setPlaying(false));
+        if (autoPlay) {
+          video.muted = true;
+          video.defaultMuted = true;
+          video.volume = 0;
+        }
+        if (!autoPlay || video.paused) {
+          void video.play().catch(() => setPlaying(false));
+        }
       } else video.pause();
     };
+    const retryPlayback = () => {
+      if (video.paused) sync();
+    };
+    if (autoPlay) {
+      video.addEventListener("loadeddata", retryPlayback, { once: true });
+      video.addEventListener("canplay", retryPlayback, { once: true });
+      window.addEventListener("pageshow", retryPlayback);
+    }
     sync();
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -62,6 +77,9 @@ export function AmbientVideo({
     preference.addEventListener("change", sync);
     return () => {
       observer.disconnect();
+      video.removeEventListener("loadeddata", retryPlayback);
+      video.removeEventListener("canplay", retryPlayback);
+      window.removeEventListener("pageshow", retryPlayback);
       document.removeEventListener("visibilitychange", sync);
       preference.removeEventListener("change", sync);
       video.pause();
