@@ -11,6 +11,7 @@ import {
 import { Header } from "@/components/cether/header";
 import { AmbientVideo } from "@/components/cether/ambient-video";
 import { Gallery } from "@/components/cether/gallery";
+import { HeroEntrance } from "@/components/cether/hero-entrance";
 import { Reveal } from "@/components/cether/reveal";
 
 const mapLink =
@@ -59,7 +60,7 @@ export default function Home() {
           aria-labelledby="hero-heading"
         >
           <div className="hero-copy">
-            <Reveal>
+            <HeroEntrance sequence>
               <p className="eyebrow">
                 <span className="small-line" /> A LITTLE SHELTER IN THE CITY
               </p>
@@ -79,7 +80,7 @@ export default function Home() {
                   Come on over <ArrowRight size={16} aria-hidden="true" />
                 </a>
               </div>
-            </Reveal>
+            </HeroEntrance>
             <a className="hero-location" href="#visit">
               <MapPin size={14} aria-hidden="true" /> QUEZON CITY, PHILIPPINES{" "}
               <span>
@@ -87,7 +88,7 @@ export default function Home() {
               </span>
             </a>
           </div>
-          <div className="hero-visual">
+          <HeroEntrance className="hero-visual">
             <AmbientVideo
               src="/cether/video-3.mp4"
               poster="/cether/order-1.jpg"
@@ -104,7 +105,7 @@ export default function Home() {
             <span className="hero-side-note">
               COFFEE & CONVERSATION / CETHER
             </span>
-          </div>
+          </HeroEntrance>
         </section>
         <div className="brand-ribbon" aria-label="Our welcome">
           <span>Sheltered in every sip.</span>

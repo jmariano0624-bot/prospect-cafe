@@ -198,10 +198,11 @@ section[id] {
   overflow: hidden;
 }
 .image-hover img {
-  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-@media (hover: hover) {
-  .image-hover:hover img {
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .image-hover:hover img,
+  .image-hover:focus-visible img {
     transform: scale(1.035);
   }
 }
@@ -215,21 +216,34 @@ section[id] {
   background: var(--olive);
   color: var(--paper);
   font-size: 12px;
-  transition: background 250ms;
+  transition:
+    background 250ms,
+    scale 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .action-link:hover {
   background: #293122;
 }
 .action-link svg,
 .text-link svg,
-.header-cta svg {
-  transition: transform 250ms;
+.header-cta svg,
+.social-links a svg,
+.footer-bottom a svg,
+.mobile-nav a svg {
+  transition: translate 300ms cubic-bezier(0.22, 1, 0.36, 1);
   flex-shrink: 0;
 }
-.action-link:hover svg,
-.text-link:hover svg,
-.header-cta:hover svg {
-  transform: translate(2px, -2px);
+@media (prefers-reduced-motion: no-preference) {
+  :is(.action-link, .text-link, .header-cta, .social-links a, .footer-bottom a, .mobile-nav a):is(:hover, :focus-visible) svg[class*="lucide-arrow"] {
+    translate: 3px 0;
+  }
+  :is(.action-link, .text-link, .header-cta):active {
+    scale: 0.98;
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :is(.action-link, .text-link, .header-cta):hover:not(:active) {
+    scale: 1.02;
+  }
 }
 .text-link {
   display: inline-flex;
@@ -241,6 +255,7 @@ section[id] {
   font-size: 12px;
   font-weight: 500;
   border-radius: 0;
+  transition: scale 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .skip-link {
   position: fixed;
@@ -312,7 +327,7 @@ section[id] {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 250ms;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .desktop-nav a:hover::after,
 .desktop-nav a:focus-visible::after {
@@ -326,6 +341,7 @@ section[id] {
   padding: 9px 20px;
   min-height: 42px;
   font-size: 11px;
+  transition: scale 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .mobile-toggle {
   display: none;
@@ -481,12 +497,6 @@ section[id] {
 .split-feature {
   flex: 1;
   min-width: 0;
-  transition: flex 600ms;
-}
-@media (hover: hover) {
-  .split-features:has(.split-feature:hover) .split-feature:hover {
-    flex: 1.06;
-  }
 }
 .feature-link {
   display: block;
@@ -532,10 +542,12 @@ section[id] {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  transition: transform 300ms;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.feature-link:hover .feature-arrow {
-  transform: rotate(8deg);
+@media (prefers-reduced-motion: no-preference) {
+  .feature-link:is(:hover, :focus-visible) .feature-arrow {
+    transform: translateX(3px);
+  }
 }
 .split-feature > p {
   font-size: 12px;
@@ -1069,9 +1081,14 @@ section[id] {
   align-items: center;
   gap: 6px;
 }
-.site-footer a:hover:not(.wordmark) {
+.site-footer a:not(.wordmark) {
   text-decoration: underline;
+  text-decoration-color: transparent;
   text-underline-offset: 4px;
+  transition: text-decoration-color 250ms;
+}
+.site-footer a:is(:hover, :focus-visible):not(.wordmark) {
+  text-decoration-color: currentColor;
 }
 
 @media (min-width: 901px) {
@@ -1732,7 +1749,13 @@ section[id] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .image-hover:hover img {
+  .reveal,
+  .hero-entrance,
+  .hero-entrance[data-entrance-sequence] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .image-open {
     transform: none;
   }
 }
