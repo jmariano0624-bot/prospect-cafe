@@ -603,6 +603,10 @@ export default function Home() {
         <div className="footer-bottom">
           <span>
             © {new Date().getFullYear()} Cether Specialty Coffee + Bistro
+            <br />
+            <a href="mailto:jmariano.0624@gmail.com">
+              Made by Jacob Mariano
+            </a>
           </span>
           <div>
             {socials.map(([label, href]) => (
