@@ -606,7 +606,16 @@ export default function Home() {
           </span>
           <div>
             {socials.map(([label, href]) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer">
+              <a
+                key={label}
+                href={
+                  label === "Facebook"
+                    ? "https://www.facebook.com/profile.php?id=61557782956954"
+                    : href
+                }
+                target="_blank"
+                rel={label === "Facebook" ? "noopener noreferrer" : "noreferrer"}
+              >
                 {label}
                 <ArrowUpRight size={12} aria-hidden="true" />
                 <span className="sr-only"> (opens in a new tab)</span>
